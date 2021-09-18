@@ -1,0 +1,491 @@
+/* ejemplo: 
+h1 {
+    text-align: center;
+    color: red;
+} */
+
+
+/* El html y el body lo debemos de usar en cada proyecto */
+
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --gris: #757575;
+    --gris-claro: #DFE9F3;
+    /* --fuente-principal: 3.8rem; */
+}
+
+
+/* Globales */
+
+html {
+    font-size: 62.5%;
+    /* hack para box model*/
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+/* scroll snap */
+
+.scroll,
+.encabezado,
+.contacto,
+.comercio,
+.footer {
+    scroll-snap-stop: normal;
+    scroll-snap-align: start;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--gris-claro) 0%, var(--blanco) 100%);
+    /* background-image: radial-gradient(ellipse, green 0%, var(--blanco) 100%); */
+}
+
+.contenedor {
+    /* sirve para definir el ancho que tendra el elemento */
+    max-width: 80rem;
+    /* forma larga de la propiedad margin */
+    /*  
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto; */
+    /* Forma simplificada de la propiedad margin */
+    /* margin: 0 auto 0 auto; */
+    /* cuando hay dos valores repetidos los podemos omitir */
+    margin: 0 auto;
+    /* si tienen el mismo valor */
+    /* matgin: 0; */
+}
+
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra {
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+    background-color: var(--blanco);
+    padding: 2rem;
+    /* esquinas redondeadas */
+    border-radius: 1rem;
+}
+
+
+/* Tipografia */
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+/* selector de elementos
+ 
+h1 {
+    text-align: center;
+    font-size: 3.8rem; /* 1 rem = 10 px 
+
+}
+
+span {
+    font-size: 2rem;
+} */
+
+
+/* utilizando clases, selector de clase */
+
+
+/* 
+.titulo {
+    text-align: center;
+    font-size: 3.8rem;
+}
+
+.titulo span {
+    font-size: 2rem;
+} */
+
+
+/* selector de ID */
+
+
+/* Ejemplo
+
+    #cliente{
+        color: blue;
+    }
+
+    #cliente span{
+        color: blue;
+    }
+*/
+
+
+/* Selector de atributo */
+
+
+/* Ejemplo:
+
+    [src = "logo.jpg"]{
+        color:blue;
+    }
+*/
+
+
+/* Combinacion de descendentes */
+
+
+/* Ejemplo
+
+    .cliente .nombre{
+        color: blue;
+    }
+*/
+
+
+/* Todos los hijos */
+
+
+/*  Ejemplo
+
+    .cliente > p{
+        color: blue;
+    }
+*/
+
+
+/* especificidad del mas alto valor al mas bajo valor*/
+
+
+/* h1.titulo span {
+    color: blue;
+}
+
+.titulo span {
+    color: red;
+}
+
+span {
+    color: green;
+} */
+
+
+/* Titulos */
+
+.titulo span {
+    font-size: 2rem;
+}
+
+
+/* Utilidades */
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+
+/* Navegacion-principal */
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+nav.navegacion-principal {
+    /* Segundo metodo para alinear el contenido de los enlaces */
+    display: flex;
+    /* flex-direction: row; */
+    flex-direction: column;
+    align-items: center;
+    /* flex-direction: column;
+    align-items: flex-start; */
+}
+
+@media (min-width: 768px) {
+    nav.navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+nav.navegacion-principal a {
+    /* background-color: var(--primario); */
+    /* primera forma de alinear el contenido de los enlaces */
+    /* display: block;
+    text-align: center; */
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+nav.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+
+/* .navegacion-principal a:visited {
+    color: #0db1fd;
+} */
+
+
+/* @media (min-width: 480px) {
+    body {
+        background-color: green;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        background-color: gray;
+    }
+}
+
+@media (min-width: 300px) {
+    body {}
+} */
+
+
+/* hero */
+
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    /* colocar sombra a un elemento codigo anterior */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* colocar sombra a u elemento codigo reciente */
+    background-color: rgb(0 0 0 / 70%);
+    /* primera forma de tomar todo el espacio del padre */
+    /* top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px; */
+    /* segunda forma de tomar todo el espacio del padre */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+/* Seccion servicios */
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /* Primera forma de crear columnas */
+        /* grid-template-columns: 300px 300px 300px; */
+        /* Segunda forma de crear columnas */
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        /* Tercera forma de crear columnas */
+        grid-template-columns: repeat(3, 1fr);
+        /* forma para añadir filas */
+        /* grid-template-rows: 250px 250px; */
+        /* añadir margen a las columnas */
+        column-gap: 5rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+.servicio p {
+    line-height: 2;
+    text-align: center;
+}
+
+.servicio .iconos {
+    width: 15rem;
+    height: 15rem;
+    background-color: var(--primario);
+    /* Circulo exacto con el valor de 50% */
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/* Seccion formulario */
+
+.formulario {
+    background-color: var(--gris);
+    width: min( 55rem, 100%);
+    margin: 0 auto;
+    padding: 1.75rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 20rem;
+}
+
+
+/* selector de atributos */
+
+
+/* .campo input[type="text"],
+.campo input[type="tel"] {
+    background-color: red;
+} */
+
+.input-text {
+    width: 100%;
+    padding: 1.5rem;
+    border: none;
+    border-radius: .5rem;
+}
+
+
+/* Seccion footer */
+
+.footer {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* modificacion propia */
+
+
+/* .footer-bg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    color: var(--blanco);
+}
+
+.centrar {
+    text-align: center;
+} */
